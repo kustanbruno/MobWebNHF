@@ -4,4 +4,10 @@
     <string name="passwor">Password</string>
     <string name="login">Login</string>
     <string name="todoapp_login">TodoApp Login</string>
+    <string name="title_activity_todo_list">TodoList</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="save">save</string>
+    <string name="name">Name</string>
 </resources>
