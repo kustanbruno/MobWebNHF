@@ -2,7 +2,7 @@ const Todo = require('./../models/todo');
 const JWT = require('./../jwt');
 
 function addTodo(req, res){
-    let t = new Todo({name: req.body.name, status: 0, date: new Date(), user: req.userId});
+    let t = new Todo({name: req.body.name, status: 0, date: new Date().getTime(), user: req.userId});
     t.save().then(function(t){
         res.json(t);
     }).catch(function(err){
@@ -37,9 +37,23 @@ function setTodoStatus(req, res){
     })
 }
 
+function editTodoName(req, res){
+    let t = Todo.findById(req.params.todoId).then(function(t){
+        if(t.user == req.userId){
+            t.name = req.body.name;
+            t.save();
+            res.json({message: 'Name change done'});
+        }else{
+            unauthorized(res);
+        }
+    }).catch(function(err){
+        res.json(err).status(500);
+    })
+}
+
 function getTodoList(req, res){
-    let t = Todo.find({user: req.userId}).then(function(t){
-        res.send(t);
+    let t = Todo.find({user: req.userId}).sort([['date', -1], ['status', 1]]).then(function(t){
+        res.send({todos: t});
     }).catch(function(err){
         res.json({message: 'Error while looking for todos'}).status(500);
     })
@@ -61,13 +75,14 @@ function authenticate(req, res, next){
 }
 
 function unauthorized(res){
-    res.json({message: 'unathorized'}).status(403);
+    res.status(403).json({message: 'unathorized'});
 }
 
 //routes
 module.exports = function(app){
     app.put('/todo', authenticate, addTodo);
     app.delete('/todo/:todoId', authenticate, deleteTodo);
-    app.post('/setStatus/:todoId', authenticate, setTodoStatus);
+    app.patch('/setStatus/:todoId', authenticate, setTodoStatus);
     app.get('/todos', authenticate, getTodoList);
+    app.patch('/todoName/:todoId', authenticate, editTodoName);
 }

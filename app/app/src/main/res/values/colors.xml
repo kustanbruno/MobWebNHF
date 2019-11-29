@@ -5,4 +5,5 @@
     <color name="colorAccent">#2A95FF</color>
     <color name="Blue">#2A95FF</color>
     <color name="White">#fff</color>
+    <color name="secondary_text">#aaa</color>
 </resources>

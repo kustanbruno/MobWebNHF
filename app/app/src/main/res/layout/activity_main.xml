@@ -4,18 +4,56 @@
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
     android:paddingRight="16dp" >
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginBottom="10dp"
         android:layout_centerVertical="true"
         >
-        <ImageView
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp">
+            <ImageView
+                android:contentDescription="@string/app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/todoapp"
+                android:layout_centerHorizontal="true"
+                />
+        </RelativeLayout>
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/todoapp"
-            android:layout_centerHorizontal="true"
-            ></ImageView>
-    </RelativeLayout>
+            android:labelFor="@+id/email"
+            android:text="@string/email"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/email"
+            android:layout_marginBottom="15dp"
+            android:inputType="textEmailAddress">
+        </EditText>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/pass"
+            android:text="@string/passwor"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pass"
+            android:layout_marginBottom="15dp"
+            android:inputType="textPassword"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:background="@color/Blue"
+            android:textColor="@color/White"
+            android:id="@+id/loginButton"
+            />
+    </LinearLayout>
 </RelativeLayout>

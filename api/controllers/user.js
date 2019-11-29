@@ -16,9 +16,9 @@ function login(req, res){
             if(u.pass == req.body.pass)
                 res.json({token:JWT.generate({id: u._id})});
             else
-                res.json({message: "Wrong email or password"}).status(406);
+                res.status(406).json({message: "Wrong email or password"});
         }else{
-            res.json({message: "Wrong email or password"}).status(406);
+            res.status(406).json({message: "Wrong email or password"});
         }
     }).catch(function(err){
         res.json(err).status(500);
