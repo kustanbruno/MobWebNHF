@@ -53,8 +53,10 @@ function editTodoName(req, res){
 
 function getTodoList(req, res){
     let t = Todo.find({user: req.userId}).sort([['date', -1], ['status', 1]]).then(function(t){
+        console.log(t);
         res.send({todos: t});
     }).catch(function(err){
+        console.log(err);
         res.json({message: 'Error while looking for todos'}).status(500);
     })
 }

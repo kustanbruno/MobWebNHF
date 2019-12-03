@@ -15,54 +15,46 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp">
-            <ImageView
-                android:contentDescription="@string/app_name"
-                android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/todoapp"
-                android:layout_centerHorizontal="true"
+                android:text="@string/registration"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:layout_marginBottom="30dp"
                 />
         </RelativeLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:labelFor="@+id/email"
+            android:labelFor="@+id/regEmail"
             android:text="@string/email"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/email"
+            android:id="@+id/regEmail"
             android:layout_marginBottom="15dp"
             android:inputType="textEmailAddress">
         </EditText>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:labelFor="@+id/pass"
+            android:labelFor="@+id/regPass"
             android:text="@string/password"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/pass"
+            android:id="@+id/regPass"
             android:layout_marginBottom="15dp"
             android:inputType="textPassword"
             />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login"
-            android:background="@color/Blue"
-            android:textColor="@color/White"
-            android:id="@+id/loginButton"
-            />
-        <Button
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/registration"
             android:background="@color/Blue"
             android:textColor="@color/White"
-            android:id="@+id/registerOpen"
+            android:id="@+id/registerButton"
             />
     </LinearLayout>
 </RelativeLayout>

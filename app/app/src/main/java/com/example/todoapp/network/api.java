@@ -209,4 +209,29 @@ public  class api {
         queue.add(req);
     }
 
+    public void register(String name, String pass, final RequestListener listener){
+        final Map<String, String> params = new HashMap<>();
+        listener.requestStarted();
+        params.put("email", name);
+        params.put("pass", pass);
+        StringRequest req = new StringRequest(Request.Method.PUT, apiUrl + "/user", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                listener.requestCompleted();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("Api", "onError - register", error);
+                if (error.networkResponse != null)
+                    listener.requestError(error.networkResponse.statusCode, new String(error.networkResponse.data));
+                else
+                    listener.requestError(error);
+            }
+        }){
+            @Override
+            public Map<String, String> getParams(){return params;}
+        };
+        queue.add(req);
+    }
 }

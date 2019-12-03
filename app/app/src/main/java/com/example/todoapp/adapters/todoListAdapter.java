@@ -19,7 +19,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class todoListAdapter extends RecyclerView.Adapter<todoListAdapter.ViewHolder> {
-    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:MM");
     private ArrayList<todo> todos = new ArrayList<todo>();
     private Context mContext;
     private toDoListController controller;
@@ -45,7 +44,9 @@ public class todoListAdapter extends RecyclerView.Adapter<todoListAdapter.ViewHo
             holder.name.setPaintFlags(holder.name.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             holder.done.setVisibility(View.GONE);
         }
-        holder.date.setText(df.format(todos.get(position).getDate()));
+        //Nem sikerult osszehozni a formatumot
+        //holder.date.setText(todos.get(position).getDate().toString());
+        holder.date.setText("");
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

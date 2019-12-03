@@ -60,6 +60,15 @@ public class MainActivity extends AppCompatActivity implements RequestListener {
         }
         );
 
+        Button register = findViewById(R.id.registerOpen);
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent regIntent = new Intent(MainActivity.this, registerActivity.class);
+                startActivity(regIntent);
+            }
+        });
+
         //should be deleted
         //email.setText("u");
         //pass.setText("b");

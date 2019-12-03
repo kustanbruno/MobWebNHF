@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">TodoApp</string>
     <string name="email">Email</string>
-    <string name="passwor">Password</string>
+    <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="todoapp_login">TodoApp Login</string>
     <string name="title_activity_todo_list">TodoList</string>
@@ -14,4 +14,5 @@
     <string name="delete_button">Delete button</string>
     <string name="edit_button">edit button</string>
     <string name="done_button">done button</string>
+    <string name="registration">Registration</string>
 </resources>

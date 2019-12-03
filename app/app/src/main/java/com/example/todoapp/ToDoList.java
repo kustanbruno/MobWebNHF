@@ -25,6 +25,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -99,7 +100,8 @@ public class ToDoList extends AppCompatActivity implements RequestListener, toDo
             todoList.clear();
             for(int i = 0; i< todos.length(); i++){
                 JSONObject t = todos.getJSONObject(i);
-                Date d = new SimpleDateFormat("yyyy-MM-dd'T'HH:MM:ss.SSS'Z'").parse(t.getString("date"));
+                Date d = new java.util.Date(t.getLong("timestamp_ms")* 1000);
+                //A datum nem jo :(
                 todoList.add(new todo(t.getString("_id"), t.getString("name"), t.getInt("status"), d));
                 if(!rvInit){
                     initRecyclerView();
